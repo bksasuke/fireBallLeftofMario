@@ -40,10 +40,10 @@
     i=0, fireBallCount=0;
     [self addCity];
     [self addClouds];
-    [self addSuperMario];
-    [self fireball];
-    [self addFireleft];
     [self addLights];
+    [self addSuperMario];
+    [self applyGesture];
+    [self addFireleft];
            marioRunSpeed = 20.0;
     timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                              target:self
@@ -72,7 +72,7 @@
 }
 
 
--(void) fireball {
+-(void) applyGesture {
     UISwipeGestureRecognizer* swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self
                                                                                     action:@selector(addFireAndRemoveMushroom)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
@@ -81,7 +81,7 @@
 }
 -(void)addFireAndRemoveMushroom {
     fireBallCount ++;
-    if (fireBallCount <7) { // Chi ban 7 vien dan
+    if (fireBallCount <8) { // Chi ban 7 vien dan
         
     
     FireBall *fireBall = [[FireBall alloc] initWithName:[NSString stringWithFormat:@"fireball%d", fireBallCount]
