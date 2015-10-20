@@ -81,11 +81,15 @@
 }
 -(void)addFireAndRemoveMushroom {
     fireBallCount ++;
+    if (fireBallCount <7) { // Chi ban 7 vien dan
+        
+    
     FireBall *fireBall = [[FireBall alloc] initWithName:[NSString stringWithFormat:@"fireball%d", fireBallCount]
                                                 inScene:self];
     fireBall.view.center = CGPointMake(self.view.center.x + 5, self.view.center.y+100);
     [self addSprite:fireBall];
     [fireBall startFly:20];
+        }
     i++;
     if (i==1) {
         [self removeSprite:ball1]; //Xoa mushroom goc phai man hinh
